@@ -14,9 +14,11 @@ public:
     DecimalFraction(const DecimalFraction&); // Constructor de copia
     ~DecimalFraction(); // Destructor
 
-    const DecimalFraction& operator=(DecimalFraction&);
+    const DecimalFraction& operator=(DecimalFraction&); // operador de asignación
+    bool operator==(DecimalFraction&) const; // operador de igualdad
+    bool operator!=(DecimalFraction&) const; // operador de desigualdad
 
-    void setValueDec(std::string, std::string);
+    void setValueDec(std::string, std::string = "");
     void setValue(long, long, long = 0);
     void setValue(long);
     long getInteger() const;
