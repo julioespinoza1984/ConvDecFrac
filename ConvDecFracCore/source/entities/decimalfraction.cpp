@@ -59,7 +59,7 @@ void DecimalFraction::setValueDec(std::string number, std::string periodo)
     long denominador = 1;
 
 //    cout << "numero: " << numero << "\tperiodo: " << periodo << endl;
-    unsigned int ubicacion = number.find(".");
+    unsigned long ubicacion = number.find(".");
     //    cout << "ubicacion: " << ubicacion << endl;
     if(ubicacion > 0 && ubicacion < number.length()) {
         std::string parteEntera = number.substr(0, ubicacion);
@@ -69,12 +69,12 @@ void DecimalFraction::setValueDec(std::string number, std::string periodo)
         std::string partDecimal = number.substr(ubicacion + 1, number.length() - 1);
 //        cout << "\tpartDecimal: " << partDecimal << endl;
         if(periodo == "") {
-            unsigned int size = partDecimal.length();
+            unsigned long size = partDecimal.length();
             for(unsigned int i = 0; i < size; ++i) denominador *= 10;
             std::istringstream cadenaDecimal(partDecimal);
             cadenaDecimal >> numerador;
         } else {
-            unsigned int ubicacionPeriodo = partDecimal.find(periodo);
+            unsigned long ubicacionPeriodo = partDecimal.find(periodo);
 //            cout << "ubicacionPeriodo: " << ubicacionPeriodo << endl;
             if(ubicacionPeriodo == std::string::npos) {
                 std::string s1("El per\u00EDodo ");
@@ -87,7 +87,7 @@ void DecimalFraction::setValueDec(std::string number, std::string periodo)
 //            cout << "noPeriodica: " << noPeriodica << endl;
             if(noPeriodica == "") {
 //                cout << "noPeriodica == "" es true" << endl;
-                unsigned int size = periodo.length();
+                unsigned long size = periodo.length();
                 for(unsigned int i = 0; i < size; ++i) denominador *= 10;
                 --denominador;
                 std::istringstream cadenaDecimal(periodo);
@@ -96,8 +96,8 @@ void DecimalFraction::setValueDec(std::string number, std::string periodo)
 //                cout << "noPeriodica == "" es false" << endl;
 //                cout << "\tNoPeriodo: " << noPeriodica;
                 std::string stringTotal = noPeriodica + periodo;
-                unsigned int sizeNoPeriodo = noPeriodica.length();
-                unsigned int size = stringTotal.length();
+                unsigned long sizeNoPeriodo = noPeriodica.length();
+                unsigned long size = stringTotal.length();
                 long denominadorPeriodo = 1;
                 for(unsigned int i = 0; i < size; ++i) denominadorPeriodo *= 10;
                 long denominadorNoPeriodo = 1;

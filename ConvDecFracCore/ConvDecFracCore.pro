@@ -35,6 +35,7 @@ SOURCES += \
 
 HEADERS += source/convdecfraccore_global.h \
         source/entities/decimalfraction.h \
+    source/entities/decimalfractionexception.h \
     source/model/decimalfractionmodel.h
 
 !build_pass:message(ConvDecFracCore project dir: $${PWD})

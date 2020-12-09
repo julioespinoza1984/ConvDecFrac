@@ -4,6 +4,7 @@
 #include <QObject>
 
 #include "convdecfraccore_global.h"
+#include "../entities/decimalfraction.h"
 
 namespace convFracDec {
 namespace model {
@@ -11,12 +12,20 @@ namespace model {
 class CONVDECFRACCORESHARED_EXPORT DecimalFractionModel : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString number WRITE setNumber NOTIFY numberChanged)
+    Q_PROPERTY(QString period WRITE setPeriod NOTIFY periodChanged)
+    Q_PROPERTY(QString result READ result)
 public:
-    explicit DecimalFractionModel(QObject *parent = nullptr);
-
+    void setNumber(const QString&);
+    void setPeriod(const QString&);
+    QString result() const;
 signals:
+    void numberChanged();
+    void periodChanged();
 
-public slots:
+private:
+    QString m_number, m_result;
+    convFracDec::entities::DecimalFraction m_decimalFraction;
 };
 
 } // end namespace model
