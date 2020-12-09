@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/components">
+        <file alias="qmldir">components/qmldir</file>
+        <file alias="MyButton.qml">components/MyButton.qml</file>
+        <file alias="MyDisplayInput.qml">components/MyDisplayInput.qml</file>
+        <file alias="MyDisplayOutput.qml">components/MyDisplayOutput.qml</file>
+        <file alias="MyKeyboard.qml">components/MyKeyboard.qml</file>
+        <file alias="calculator.js">components/calculator.js</file>
+        <file alias="NumberPad.qml">components/NumberPad.qml</file>
+    </qresource>
+</RCC>

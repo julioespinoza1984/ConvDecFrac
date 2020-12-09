@@ -1,0 +1,6 @@
+module components
+MyButton 1.0 MyButton.qml
+MyDisplayInput 1.0 MyDisplayInput.qml
+MyDisplayOutput 1.0 MyDisplayOutput.qml
+MyKeyboard 1.0 MyKeyboard.qml
+NumberPad 1.0 NumberPad.qml
