@@ -1,9 +1,6 @@
 #include "decimalfraction.h"
 #include "decimalfractionexception.h"
 #include <sstream>
-#include <iostream>
-using std::cout;
-using std::endl;
 
 namespace convFracDec {
 namespace entities {
@@ -11,12 +8,10 @@ namespace entities {
 DecimalFraction::DecimalFraction()
     : m_integer(0), m_num(0), m_den(1), m_numComp(0)
 {
-    cout << "Constructor de DecimalFraction " << toString() << endl;
 }
 
 DecimalFraction::DecimalFraction(const DecimalFraction &df)
 {
-    cout << "Constructor de Copia DecimalFraction: " << df.toString() << endl;
     m_integer = df.getInteger();
     m_num = df.getNum();
     m_den = df.getDen();
@@ -25,13 +20,11 @@ DecimalFraction::DecimalFraction(const DecimalFraction &df)
 
 DecimalFraction::~DecimalFraction()
 {
-    cout << "Destructor de DecimalFraction " << toString() << endl;
 }
 
 const DecimalFraction& DecimalFraction::operator=(DecimalFraction &df)
 {
     if(this != &df) { // previene la auto-asignación
-    cout << "Operador de asignación DecimalFraction: " << df.toString() << endl;
             m_integer = df.getInteger();
             m_num = df.getNum();
             m_den = df.getDen();
@@ -58,16 +51,13 @@ void DecimalFraction::setValueDec(std::string number, std::string periodo)
     long entero = 0;
     long denominador = 1;
 
-//    cout << "numero: " << numero << "\tperiodo: " << periodo << endl;
     unsigned long ubicacion = number.find(".");
     //    cout << "ubicacion: " << ubicacion << endl;
     if(ubicacion > 0 && ubicacion < number.length()) {
         std::string parteEntera = number.substr(0, ubicacion);
         std::istringstream cadenaEntera(parteEntera);
         cadenaEntera >> entero;
-//        cout << "parteEntera: " << parteEntera;
         std::string partDecimal = number.substr(ubicacion + 1, number.length() - 1);
-//        cout << "\tpartDecimal: " << partDecimal << endl;
         if(periodo == "") {
             unsigned long size = partDecimal.length();
             for(unsigned int i = 0; i < size; ++i) denominador *= 10;
@@ -75,7 +65,6 @@ void DecimalFraction::setValueDec(std::string number, std::string periodo)
             cadenaDecimal >> numerador;
         } else {
             unsigned long ubicacionPeriodo = partDecimal.find(periodo);
-//            cout << "ubicacionPeriodo: " << ubicacionPeriodo << endl;
             if(ubicacionPeriodo == std::string::npos) {
                 std::string s1("El per\u00EDodo ");
                 s1 += periodo;
@@ -84,17 +73,13 @@ void DecimalFraction::setValueDec(std::string number, std::string periodo)
                 throw DecimalFractionException(s1);
             }
             std::string noPeriodica = partDecimal.substr(0, ubicacionPeriodo);
-//            cout << "noPeriodica: " << noPeriodica << endl;
             if(noPeriodica == "") {
-//                cout << "noPeriodica == "" es true" << endl;
                 unsigned long size = periodo.length();
                 for(unsigned int i = 0; i < size; ++i) denominador *= 10;
                 --denominador;
                 std::istringstream cadenaDecimal(periodo);
                 cadenaDecimal >> numerador;
             } else {
-//                cout << "noPeriodica == "" es false" << endl;
-//                cout << "\tNoPeriodo: " << noPeriodica;
                 std::string stringTotal = noPeriodica + periodo;
                 unsigned long sizeNoPeriodo = noPeriodica.length();
                 unsigned long size = stringTotal.length();
@@ -110,8 +95,6 @@ void DecimalFraction::setValueDec(std::string number, std::string periodo)
                 cadenaNoPeriodo >> numNoPeriodo;
                 numerador = numPeriodo - numNoPeriodo;
             }
-//            cout << "\tperiodo: " << periodo;
-
         }
     } else {
         if(periodo == "") {
@@ -125,8 +108,6 @@ void DecimalFraction::setValueDec(std::string number, std::string periodo)
             throw DecimalFractionException(s1);
         }
     }
-//    cout << "\tnum: " << numerador;
-//    cout << "\tden: " << denominador << endl;
     setValue(numerador, denominador, entero);
 }
 
@@ -136,23 +117,13 @@ void DecimalFraction::setValue(long num, long den, long integer)
         std::string s1("Valor Inv\u00E1lido. Denominar cero.");
         throw DecimalFractionException(s1);
     }
-    //    cout << "\n_num: " << _num << endl;
-    //    cout << "_den: " << _den << endl;
-    //    cout << "_partEntera: " << _partEntera << endl;
     long numInner = num + den * integer;
-    //    cout << "numInner: " << numInner << endl;
     long mcd = getMcd(numInner >= 0 ? numInner : -numInner, den > 0 ? den : -den);
-    //    cout << "mcd: " << mcd << endl;
     m_num = numInner / mcd;
-    //    cout << "num: " << num << endl;
     m_den = den / mcd;
-    //    cout << "den: " << den << endl;
     m_integer = m_num/m_den;
-    //    cout << "partEntera: " << partEntera << endl;
     m_num %= m_den;
-    //    cout << "num: " << num << endl;
     m_numComp = m_num + m_den * m_integer;
-    //    cout << "numComp: " << numComp << endl;
 }
 
 void DecimalFraction::setValue(long num)
@@ -212,7 +183,6 @@ std::string DecimalFraction::toString() const
 
 long DecimalFraction::getMcd(long a, long b)
 {
-    //cout << "Calculando Mcd(" << a << ", " << b << ")" << endl;
     if(b == 0) {
         return a;
     }
@@ -220,7 +190,6 @@ long DecimalFraction::getMcd(long a, long b)
         return b;
     }
 
-    //    cout << "Calculando Mcd(" << a << ", " << b << ")" << endl;
     if(b > 0) {
         long temp;
         while(a > 0) {
@@ -232,7 +201,6 @@ long DecimalFraction::getMcd(long a, long b)
             a -= b;
         }
     }
-    //cout << "Calculado Mcd(" << a << ", " << b << ") = " << b << endl;
     return b;
 }
 

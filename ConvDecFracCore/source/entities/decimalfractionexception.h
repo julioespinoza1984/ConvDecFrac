@@ -5,7 +5,7 @@
 
 namespace convFracDec {
 namespace entities {
-    
+
 class DecimalFractionException
 {
 public:
