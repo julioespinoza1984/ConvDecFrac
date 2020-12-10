@@ -19,22 +19,22 @@ public:
     bool operator!=(DecimalFraction&) const; // operador de desigualdad
 
     void setValueDec(std::string, std::string = "");
-    void setValue(long, long, long = 0);
-    void setValue(long);
-    long getInteger() const;
-    long getNum() const;
-    long getDen() const;
-    long getNumComp() const;
+    void setValue(unsigned long, unsigned long, unsigned long = 0);
+    void setValue(unsigned long);
+    unsigned long getInteger() const;
+    unsigned long getNum() const;
+    unsigned long getDen() const;
+    unsigned long getNumComp() const;
 
     std::string toString() const;
 
 private:
-    long getMcd(long, long);
+    unsigned long getMcd(unsigned long, unsigned long);
 
-    long m_integer{0};
-    long m_num{0};
-    long m_den{1};
-    long m_numComp{0};
+    unsigned long m_integer{0};
+    unsigned long m_num{0};
+    unsigned long m_den{1};
+    unsigned long m_numComp{0};
 };
 
 } // end namespace entities
