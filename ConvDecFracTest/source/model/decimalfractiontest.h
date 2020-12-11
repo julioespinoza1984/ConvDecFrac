@@ -3,7 +3,7 @@
 
 #include <testsuite.h>
 
-namespace convFracDec {
+namespace convDecFrac {
 namespace model {
 
 class DecimalFractionTest : public TestSuite
@@ -21,6 +21,6 @@ private slots:
 };
 
 } // end namespace model
-} // end namespace convFracDec
+} // end namespace convDecFrac
 
 #endif // DECIMALFRACTION_TEST_H

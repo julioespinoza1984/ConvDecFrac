@@ -3,7 +3,7 @@
 
 #include <string>
 
-namespace convFracDec {
+namespace convDecFrac {
 namespace entities {
 
 class DecimalFractionException
@@ -21,6 +21,6 @@ private:
 };
 
 } // end namespace entities
-} // end namespace convFracDec
+} // end namespace convDecFrac
 
 #endif // DECIMALFRACTION_EXCEPTION_H

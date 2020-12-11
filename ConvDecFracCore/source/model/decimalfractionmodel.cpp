@@ -3,7 +3,7 @@
 
 #include <string>
 
-namespace convFracDec {
+namespace convDecFrac {
 namespace model {
 
 void DecimalFractionModel::setNumber(const QString &number)
@@ -26,7 +26,7 @@ void DecimalFractionModel::setPeriod(const QString &period)
             m_result = m_number;
             m_result += " = ";
             m_result += QString::fromStdString(m_decimalFraction.toString());
-        } catch (convFracDec::entities::DecimalFractionException &e) {
+        } catch (convDecFrac::entities::DecimalFractionException &e) {
             m_result = QString::fromStdString(e.getMessage());
         }
     }
@@ -40,4 +40,4 @@ QString DecimalFractionModel::result() const
 
 
 } // end namespace model
-} // end namespace convFracDec
+} // end namespace convDecFrac

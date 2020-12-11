@@ -2,7 +2,7 @@
 
 #include <QDebug>
 
-namespace convFracDec {
+namespace convDecFrac {
 
 TestSuite::TestSuite(const QString &_testName)
     : QObject(),
@@ -24,5 +24,5 @@ std::vector<TestSuite *> &TestSuite::testList()
     return instance;
 }
 
-} // end namespace
+} // end namespace convDecFrac
 

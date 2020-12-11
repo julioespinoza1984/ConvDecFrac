@@ -2,7 +2,7 @@
 #include "decimalfractionexception.h"
 #include <sstream>
 
-namespace convFracDec {
+namespace convDecFrac {
 namespace entities {
 
 DecimalFraction::DecimalFraction()
@@ -212,4 +212,4 @@ unsigned long DecimalFraction::getMcd(unsigned long a, unsigned long b)
 }
 
 } // end namespace entities
-} // end namespace convFracDec
+} // end namespace convDecFrac

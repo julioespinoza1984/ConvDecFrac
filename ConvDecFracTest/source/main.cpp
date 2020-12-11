@@ -3,7 +3,7 @@
 
 #include "testsuite.h"
 
-using namespace convFracDec;
+using namespace convDecFrac;
 
 int main(int argc, char *argv[])
 {

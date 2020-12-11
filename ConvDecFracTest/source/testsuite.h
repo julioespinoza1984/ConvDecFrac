@@ -6,7 +6,7 @@
 
 #include <vector>
 
-namespace convFracDec {
+namespace convDecFrac {
 
 class TestSuite : public QObject
 {
@@ -19,6 +19,6 @@ public:
     static std::vector<TestSuite*>& testList();
 };
 
-} // end namespace convFracDec
+} // end namespace convDecFrac
 
 #endif // TESTSUITE_H

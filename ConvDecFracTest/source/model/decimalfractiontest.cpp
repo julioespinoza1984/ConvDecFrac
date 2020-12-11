@@ -6,7 +6,7 @@
 
 #include <QtTest>
 
-namespace convFracDec {
+namespace convDecFrac {
 namespace model {   // Instance
 
 static DecimalFractionTest instance;
@@ -356,4 +356,4 @@ void DecimalFractionTest::testDecimalFraction188()
 }
 
 } // end namespace model
-} // end namespace convFracDec
+} // end namespace convDecFrac

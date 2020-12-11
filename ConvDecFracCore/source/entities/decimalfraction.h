@@ -3,7 +3,7 @@
 
 #include <string>
 
-namespace convFracDec {
+namespace convDecFrac {
 namespace entities {
 
 class DecimalFraction
@@ -38,6 +38,6 @@ private:
 };
 
 } // end namespace entities
-} // end namespace convFracDec
+} // end namespace convDecFrac
 
 #endif // DECIMALFRACTION_H

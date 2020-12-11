@@ -6,7 +6,7 @@
 #include "convdecfraccore_global.h"
 #include "../entities/decimalfraction.h"
 
-namespace convFracDec {
+namespace convDecFrac {
 namespace model {
 
 class CONVDECFRACCORESHARED_EXPORT DecimalFractionModel : public QObject
@@ -25,10 +25,10 @@ signals:
 
 private:
     QString m_number, m_result;
-    convFracDec::entities::DecimalFraction m_decimalFraction;
+    convDecFrac::entities::DecimalFraction m_decimalFraction;
 };
 
 } // end namespace model
-} // end namespace convFracDec
+} // end namespace convDecFrac
 
 #endif // DECIMALFRACTIONMODEL_H
